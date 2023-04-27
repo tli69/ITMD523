@@ -1,20 +1,20 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
 
-import com.book.backend.config.MessageStrings;
-import com.book.backend.dto.*;
-import com.book.backend.dto.user.SignInDto;
-import com.book.backend.dto.user.SignInResponseDto;
-import com.book.backend.dto.user.SignupDto;
-import com.book.backend.dto.user.UserCreateDto;
-import com.book.backend.enums.ResponseStatus;
-import com.book.backend.enums.Role;
-import com.book.backend.exceptions.AuthenticationFailException;
-import com.book.backend.exceptions.CustomException;
-import com.book.backend.model.AuthenticationToken;
-import com.book.backend.model.User;
-import com.book.backend.repository.UserRepository;
-import com.book.backend.utils.Helper;
+import com.item.backend.config.MessageStrings;
+import com.item.backend.dto.*;
+import com.item.backend.dto.user.SignInDto;
+import com.item.backend.dto.user.SignInResponseDto;
+import com.item.backend.dto.user.SignupDto;
+import com.item.backend.dto.user.UserCreateDto;
+import com.item.backend.enums.ResponseStatus;
+import com.item.backend.enums.Role;
+import com.item.backend.exceptions.AuthenticationFailException;
+import com.item.backend.exceptions.CustomException;
+import com.item.backend.model.AuthenticationToken;
+import com.item.backend.model.User;
+import com.item.backend.repository.UserRepository;
+import com.item.backend.utils.Helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static com.book.backend.config.MessageStrings.USER_CREATED;
+import static com.item.backend.config.MessageStrings.USER_CREATED;
 
 
 @Service

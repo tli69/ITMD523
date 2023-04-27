@@ -1,12 +1,12 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
 
-import com.book.backend.config.MessageStrings;
-import com.book.backend.exceptions.AuthenticationFailException;
-import com.book.backend.model.AuthenticationToken;
-import com.book.backend.model.User;
-import com.book.backend.repository.TokenRepository;
-import com.book.backend.utils.Helper;
+import com.item.backend.config.MessageStrings;
+import com.item.backend.exceptions.AuthenticationFailException;
+import com.item.backend.model.AuthenticationToken;
+import com.item.backend.model.User;
+import com.item.backend.repository.TokenRepository;
+import com.item.backend.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

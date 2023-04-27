@@ -1,8 +1,8 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.exceptions.AuthorNotExistException;
-import com.book.backend.model.Author;
-import com.book.backend.repository.AuthorRepository;
+import com.item.backend.exceptions.AuthorNotExistException;
+import com.item.backend.model.Author;
+import com.item.backend.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -39,7 +39,7 @@ public class AuthorService {
 		Author author = authorRepository.findById(authorId).get();
 		author.setEmail(newAuthor.getEmail());
 		author.setName(newAuthor.getName());
-		author.setBooks(newAuthor.getBooks());
+		author.setItems(newAuthor.getItems());
 		//author.setImageUrl(newAuthor.getImageUrl());
 		authorRepository.save(author);
 	}

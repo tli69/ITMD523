@@ -1,7 +1,7 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.model.OrderItem;
-import com.book.backend.repository.OrderItemsRepository;
+import com.item.backend.model.OrderItem;
+import com.item.backend.repository.OrderItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

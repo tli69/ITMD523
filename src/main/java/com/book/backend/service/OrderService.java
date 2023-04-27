@@ -1,16 +1,16 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.dto.cart.CartDto;
-import com.book.backend.dto.cart.CartItemDto;
-import com.book.backend.dto.checkout.CheckoutItemDto;
-import com.book.backend.exceptions.OrderNotFoundException;
-import com.book.backend.model.Order;
-import com.book.backend.model.OrderItem;
-import com.book.backend.model.OrderedBooks;
-import com.book.backend.model.User;
-import com.book.backend.repository.OrderItemsRepository;
-import com.book.backend.repository.OrderRepository;
-import com.book.backend.repository.OrderedBooksRepository;
+import com.item.backend.dto.cart.CartDto;
+import com.item.backend.dto.cart.CartItemDto;
+import com.item.backend.dto.checkout.CheckoutItemDto;
+import com.item.backend.exceptions.OrderNotFoundException;
+import com.item.backend.model.Order;
+import com.item.backend.model.OrderItem;
+import com.item.backend.model.OrderedBooks;
+import com.item.backend.model.User;
+import com.item.backend.repository.OrderItemsRepository;
+import com.item.backend.repository.OrderRepository;
+import com.item.backend.repository.OrderedBooksRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
@@ -55,7 +55,7 @@ public class OrderService {
                 .setUnitAmount((long)(checkoutItemDto.getPrice()*100))
                 .setProductData(
                         SessionCreateParams.LineItem.PriceData.ProductData.builder()
-                                .setName(checkoutItemDto.getBookTitle())
+                                .setName(checkoutItemDto.getItemTitle())
                                 .build())
                 .build();
     }
@@ -114,16 +114,16 @@ public class OrderService {
 
         for (CartItemDto cartItemDto : cartItemDtoList) {
             // create orderItem and save each one
-            OrderedBooks ordered = new OrderedBooks();
-            ordered.setTitle(cartItemDto.getBook().getTitle());
-            ordered.setDescription(cartItemDto.getBook().getDescription());
-            ordered.setPrice(cartItemDto.getBook().getPrice());
-            ordered.setImageURL(cartItemDto.getBook().getImageURL());
+            OrderedItems ordered = new OrderedItems();
+            ordered.setTitle(cartItemDto.getItem().getTitle());
+            ordered.setDescription(cartItemDto.getItem().getDescription());
+            ordered.setPrice(cartItemDto.getItem().getPrice());
+            ordered.setImageURL(cartItemDto.getItem().getImageURL());
             orderedBooksRepository.save(ordered);
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
-            orderItem.setPrice(cartItemDto.getBook().getPrice());
-            orderItem.setBook(ordered);
+            orderItem.setPrice(cartItemDto.getItem().getPrice());
+            orderItem.setItem(ordered);
             orderItem.setQuantity(cartItemDto.getQuantity());
             orderItem.setOrder(newOrder);
             // add to order item list

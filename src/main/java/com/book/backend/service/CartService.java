@@ -1,11 +1,11 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.dto.cart.AddToCartDto;
-import com.book.backend.dto.cart.CartDto;
-import com.book.backend.dto.cart.CartItemDto;
-import com.book.backend.exceptions.CartItemNotExistException;
-import com.book.backend.model.*;
-import com.book.backend.repository.CartRepository;
+import com.item.backend.dto.cart.AddToCartDto;
+import com.item.backend.dto.cart.CartDto;
+import com.item.backend.dto.cart.CartItemDto;
+import com.item.backend.exceptions.CartItemNotExistException;
+import com.item.backend.model.*;
+import com.item.backend.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +27,8 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-    public void addToCart(AddToCartDto addToCartDto, Books book, User user){
-        Cart cart = new Cart(book, addToCartDto.getQuantity(), user);
+    public void addToCart(AddToCartDto addToCartDto, Items item, User user){
+        Cart cart = new Cart(item, addToCartDto.getQuantity(), user);
         cartRepository.save(cart);
     }
 
@@ -42,7 +42,7 @@ public class CartService {
         }
         double totalCost = 0;
         for (CartItemDto cartItemDto :cartItems){
-            totalCost += (cartItemDto.getBook().getPrice()* cartItemDto.getQuantity());
+            totalCost += (cartItemDto.getItem().getPrice()* cartItemDto.getQuantity());
         }
         return new CartDto(cartItems,totalCost);
     }
@@ -53,7 +53,7 @@ public class CartService {
     }
 
 
-    public void updateCartItem(AddToCartDto cartDto, User user, Books book){
+    public void updateCartItem(AddToCartDto cartDto, User user, Items item){
         Cart cart = cartRepository.getOne(cartDto.getId());
         cart.setQuantity(cartDto.getQuantity());
         cart.setCreatedDate(new Date());

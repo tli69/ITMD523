@@ -1,7 +1,7 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.config.StorageProperties;
-import com.book.backend.exceptions.StorageException;
+import com.item.backend.config.StorageProperties;
+import com.item.backend.exceptions.StorageException;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
