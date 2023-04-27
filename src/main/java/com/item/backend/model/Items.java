@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "books")
+@Table(name = "items")
 public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,9 @@ public class Items {
     private @NotNull double price;
     private @NotNull String description;
 
-    @ManyToOne
+    /*(@ManyToOne
     @JoinColumn(name = "author_id")
-    Author author;
+    Author author; */
 
     @JsonIgnore
     @OneToMany(mappedBy = "item",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -32,21 +32,19 @@ public class Items {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item",  cascade = CascadeType.ALL)
     private List<Cart> carts;
 
-    public Items(ItemsDto itemsDto, Author author) {
+    public Items(ItemsDto itemsDto) {
         this.title = itemsDto.getTitle();
         this.imageURL = itemsDto.getImageURL();
         this.description = itemsDto.getDescription();
         this.price = itemsDto.getPrice();
-        this.author = author;
     }
 
-    public Items(String title, String imageURL, double price, String description, Author author) {
+    public Items(String title, String imageURL, double price, String description) {
         super();
         this.title = title;
         this.imageURL = imageURL;
         this.price = price;
         this.description = description;
-        this.author = author;
     }
 
     public Items() {
@@ -90,14 +88,6 @@ public class Items {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
     }
 
     public Set<WishList> getWishListList() {

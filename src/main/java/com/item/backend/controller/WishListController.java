@@ -41,7 +41,7 @@ public class WishListController {
         }
 
         @PostMapping("/add")
-        public ResponseEntity<ApiResponse> addWishList(@RequestBody items item, @RequestParam("token") String token) {
+        public ResponseEntity<ApiResponse> addWishList(@RequestBody Items item, @RequestParam("token") String token) {
                 authenticationService.authenticate(token);
                 User user = authenticationService.getUser(token);
                 WishList wishList = new WishList(user, item);

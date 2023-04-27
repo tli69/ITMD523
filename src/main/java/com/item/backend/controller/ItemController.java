@@ -10,10 +10,9 @@ import com.item.backend.common.ApiResponse;
 import com.item.backend.dto.items.ItemsDto;
 import com.item.backend.exceptions.AuthenticationFailException;
 import com.item.backend.exceptions.CartItemNotExistException;
-import com.item.backend.model.Author;
 import com.item.backend.service.AuthenticationService;
-import com.item.backend.service.AuthorService;
 import com.item.backend.service.ItemsService;
+import com.stripe.param.OrderCreateParams.Item;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,9 +23,6 @@ import java.util.Optional;
 public class ItemController {
     @Autowired
     ItemsService itemsService;
-
-    @Autowired
-    AuthorService authorService;
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -40,23 +36,22 @@ public class ItemController {
 
     @PostMapping("/add")
     public ResponseEntity<ApiResponse> addItem(@RequestBody ItemsDto itemsDto) {
-        Optional<Author> optionalAuthor = authorService.readAuthor(itemsDto.getAuthorId());
-        if (!optionalAuthor.isPresent()) {
-            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "author is invalid"), HttpStatus.CONFLICT);
+        //Optional<Item> optionalItem = itemsService.getItemById(itemsDto.getId());
+        if (itemsService.getItemById(itemsDto.getId()) == null) {
+            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "item is invalid"), HttpStatus.CONFLICT);
         }
-        Author author = optionalAuthor.get();
-        itemsService.addItem(itemsDto, author);
+    
+        itemsService.addItem(itemsDto);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Product has been added"), HttpStatus.CREATED);
     }
 
     @PostMapping("/update/{id}")
     public ResponseEntity<ApiResponse> updateItem(@PathVariable("id") Integer itemId, @RequestBody @Valid ItemsDto itemsDto) {
-        Optional<Author> optionalAuthor = authorService.readAuthor(itemsDto.getAuthorId());
-        if (!optionalAuthor.isPresent()) {
-            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "author is invalid"), HttpStatus.CONFLICT);
+        //Optional<Author> optionalAuthor = authorService.readAuthor(itemsDto.getAuthorId());
+        if (itemsService.getItemById(itemsDto.getId()) == null) {
+            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "item is invalid"), HttpStatus.CONFLICT);
         }
-        Author author = optionalAuthor.get();
-        itemsService.updateItem(itemId, itemsDto, author);
+        itemsService.updateItem(itemId, itemsDto);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Item has been updated"), HttpStatus.OK);
     }
     @DeleteMapping("/delete/{itemId}")

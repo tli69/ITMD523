@@ -20,7 +20,6 @@ public class ItemsDto {
         this.setImageURL(item.getImageURL());
         this.setDescription(item.getDescription());
         this.setPrice(item.getPrice());
-        this.setAuthorId(item.getAuthor().getId());
     }
 
     public ItemsDto(@NotNull String title, @NotNull double price, @NotNull String description, @NotNull Integer authorId) {
@@ -68,14 +67,6 @@ public class ItemsDto {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
     }
 
     public ItemsDto() {

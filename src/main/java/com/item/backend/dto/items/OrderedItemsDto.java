@@ -11,7 +11,7 @@ public class OrderedItemsDto {
     private @NotNull double price;
     private @NotNull String description;
 
-    public OrderedItemsDto(OrderedItems book) {
+    public OrderedItemsDto(OrderedItems item) {
         this.setId(item.getId());
         this.setTitle(item.getTitle());
         this.setImageURL(item.getImageURL());

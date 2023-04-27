@@ -16,7 +16,7 @@ public class Cart {
     private Date createdDate;
     @ManyToOne
     @JoinColumn(name = "item_id", referencedColumnName = "id")
-    private Item item;
+    private Items item;
     @JsonIgnore
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")

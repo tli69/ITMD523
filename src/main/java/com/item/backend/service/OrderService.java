@@ -10,7 +10,7 @@ import com.item.backend.model.OrderedItems;
 import com.item.backend.model.User;
 import com.item.backend.repository.OrderItemsRepository;
 import com.item.backend.repository.OrderRepository;
-import com.item.backend.repository.OrderedItemsRepository;
+//import com.item.backend.repository.OrderedItemsRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
@@ -39,8 +39,8 @@ public class OrderService {
     @Autowired
     OrderItemsRepository orderItemsRepository;
 
-    @Autowired
-    OrderedItemsRepository  orderedBooksRepository;
+   // @Autowired
+   // OrderedItemsRepository  orderedItemsRepository;
 
     @Value("${BASE_URL}")
     private String baseURL;
@@ -119,7 +119,7 @@ public class OrderService {
             ordered.setDescription(cartItemDto.getItem().getDescription());
             ordered.setPrice(cartItemDto.getItem().getPrice());
             ordered.setImageURL(cartItemDto.getItem().getImageURL());
-            orderedItemsRepository.save(ordered);
+            //orderedItemsRepository.save(ordered);
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
             orderItem.setPrice(cartItemDto.getItem().getPrice());

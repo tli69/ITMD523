@@ -3,7 +3,6 @@ package com.item.backend.service;
 import com.item.backend.dto.items.ItemsDto;
 import com.item.backend.exceptions.ItemNotExistException;
 import com.item.backend.exceptions.CartItemNotExistException;
-import com.item.backend.model.Author;
 import com.item.backend.model.Items;
 import com.item.backend.repository.ItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,18 +34,18 @@ public class ItemsService {
         return itemsDto;
     }
 
-    public static Items getItemFromDto(ItemsDto itemsDto, Author author) {
-        Items item = new Items(itemsDto, author);
+    public static Items getItemFromDto(ItemsDto itemsDto) {
+        Items item = new Items(itemsDto);
         return item;
     }
 
-    public void addItem(ItemsDto itemsDto, Author author) {
-        Items item = getItemFromDto(itemsDto, author);
+    public void addItem(ItemsDto itemsDto) {
+        Items item = getItemFromDto(itemsDto);
         itemsRepository.save(item);
     }
 
-    public void updateItem(Integer itemId, ItemsDto itemsDto, Author author) {
-        Items item = getItemFromDto(itemsDto, author);
+    public void updateItem(Integer itemId, ItemsDto itemsDto) {
+        Items item = getItemFromDto(itemsDto);
         item.setId(itemId);
         itemsRepository.save(item);
     }
