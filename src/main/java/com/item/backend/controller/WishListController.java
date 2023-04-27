@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.item.backend.common.ApiResponse;
-import com.item.backend.dto.items.BooksDto;
-import com.item.backend.model.Books;
+import com.item.backend.dto.items.ItemsDto;
+import com.item.backend.model.Items;
 import com.item.backend.model.User;
 import com.item.backend.model.WishList;
 import com.item.backend.service.AuthenticationService;
-import com.item.backend.service.BooksService;
+import com.item.backend.service.ItemsService;
 import com.item.backend.service.WishListService;
 
 import java.util.ArrayList;

@@ -5,7 +5,7 @@ public class CheckoutItemDto {
     private String itemTitle;
     private int  quantity;
     private double price;
-    private long bookId;
+    private long itemId;
     private int userId;
 
     public CheckoutItemDto() {}

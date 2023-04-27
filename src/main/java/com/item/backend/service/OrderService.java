@@ -6,11 +6,11 @@ import com.item.backend.dto.checkout.CheckoutItemDto;
 import com.item.backend.exceptions.OrderNotFoundException;
 import com.item.backend.model.Order;
 import com.item.backend.model.OrderItem;
-import com.item.backend.model.OrderedBooks;
+import com.item.backend.model.OrderedItems;
 import com.item.backend.model.User;
 import com.item.backend.repository.OrderItemsRepository;
 import com.item.backend.repository.OrderRepository;
-import com.item.backend.repository.OrderedBooksRepository;
+import com.item.backend.repository.OrderedItemsRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
@@ -40,7 +40,7 @@ public class OrderService {
     OrderItemsRepository orderItemsRepository;
 
     @Autowired
-    OrderedBooksRepository  orderedBooksRepository;
+    OrderedItemsRepository  orderedBooksRepository;
 
     @Value("${BASE_URL}")
     private String baseURL;
@@ -119,7 +119,7 @@ public class OrderService {
             ordered.setDescription(cartItemDto.getItem().getDescription());
             ordered.setPrice(cartItemDto.getItem().getPrice());
             ordered.setImageURL(cartItemDto.getItem().getImageURL());
-            orderedBooksRepository.save(ordered);
+            orderedItemsRepository.save(ordered);
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
             orderItem.setPrice(cartItemDto.getItem().getPrice());

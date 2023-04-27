@@ -2,7 +2,7 @@ package com.item.backend.dto.cart;
 
 import javax.validation.constraints.NotNull;
 
-import com.item.backend.model.Books;
+import com.item.backend.model.Items;
 import com.item.backend.model.Cart;
 
 public class CartItemDto {
@@ -16,7 +16,7 @@ public class CartItemDto {
     public CartItemDto(Cart cart) {
         this.setId(cart.getId());
         this.setQuantity(cart.getQuantity());
-        this.setBook(cart.getItem());
+        this.setItem(cart.getItem());
     }
 
     @Override

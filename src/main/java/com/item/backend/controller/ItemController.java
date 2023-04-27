@@ -7,13 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.item.backend.common.ApiResponse;
-import com.item.backend.dto.items.BooksDto;
+import com.item.backend.dto.items.ItemsDto;
 import com.item.backend.exceptions.AuthenticationFailException;
 import com.item.backend.exceptions.CartItemNotExistException;
 import com.item.backend.model.Author;
 import com.item.backend.service.AuthenticationService;
 import com.item.backend.service.AuthorService;
-import com.item.backend.service.BooksService;
+import com.item.backend.service.ItemsService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @RequestMapping("/item")
 public class ItemController {
     @Autowired
-    BooksService itemsService;
+    ItemsService itemsService;
 
     @Autowired
     AuthorService authorService;
@@ -50,7 +50,7 @@ public class ItemController {
     }
 
     @PostMapping("/update/{id}")
-    public ResponseEntity<ApiResponse> updateItem(@PathVariable("id") Integer itemId, @RequestBody @Valid BooksDto itemsDto) {
+    public ResponseEntity<ApiResponse> updateItem(@PathVariable("id") Integer itemId, @RequestBody @Valid ItemsDto itemsDto) {
         Optional<Author> optionalAuthor = authorService.readAuthor(itemsDto.getAuthorId());
         if (!optionalAuthor.isPresent()) {
             return new ResponseEntity<ApiResponse>(new ApiResponse(false, "author is invalid"), HttpStatus.CONFLICT);

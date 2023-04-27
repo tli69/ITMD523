@@ -9,12 +9,12 @@ import com.item.backend.common.ApiResponse;
 import com.item.backend.dto.cart.AddToCartDto;
 import com.item.backend.dto.cart.CartDto;
 import com.item.backend.exceptions.AuthenticationFailException;
-import com.item.backend.exceptions.BookNotExistException;
+import com.item.backend.exceptions.ItemNotExistException;
 import com.item.backend.exceptions.CartItemNotExistException;
-import com.item.backend.model.Books;
+import com.item.backend.model.Items;
 import com.item.backend.model.User;
 import com.item.backend.service.AuthenticationService;
-import com.item.backend.service.BooksService;
+import com.item.backend.service.ItemsService;
 import com.item.backend.service.CartService;
 
 import javax.validation.Valid;
@@ -36,7 +36,7 @@ public class CartController {
                                                  @RequestParam("token") String token) throws AuthenticationFailException, ItemNotExistException {
         authenticationService.authenticate(token);
         User user = authenticationService.getUser(token);
-        Books item = itemsService.getItemById(addToCartDto.getItemId());
+        Items item = itemsService.getItemById(addToCartDto.getItemId());
         System.out.println("Item to add"+  item.getTitle());
         cartService.addToCart(addToCartDto, item, user);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Added to cart"), HttpStatus.CREATED);

@@ -1,11 +1,11 @@
 package com.item.backend.service;
 
-import com.item.backend.dto.books.BooksDto;
-import com.item.backend.exceptions.BookNotExistException;
+import com.item.backend.dto.items.ItemsDto;
+import com.item.backend.exceptions.ItemNotExistException;
 import com.item.backend.exceptions.CartItemNotExistException;
 import com.item.backend.model.Author;
-import com.item.backend.model.Books;
-import com.item.backend.repository.BooksRepository;
+import com.item.backend.model.Items;
+import com.item.backend.repository.ItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

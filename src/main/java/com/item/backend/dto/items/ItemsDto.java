@@ -3,7 +3,7 @@ package com.item.backend.dto.items;
 
 import javax.validation.constraints.NotNull;
 
-import com.item.backend.model.Books;
+import com.item.backend.model.Items;
 
 public class ItemsDto {
 

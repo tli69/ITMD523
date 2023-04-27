@@ -15,8 +15,8 @@ public class Cart {
     @Column(name = "created_date")
     private Date createdDate;
     @ManyToOne
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
-    private Books book;
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
     @JsonIgnore
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
@@ -24,9 +24,9 @@ public class Cart {
     private int quantity;
     public Cart() {
     }
-    public Cart(Books book, int quantity, User user){
+    public Cart(Items item, int quantity, User user){
         this.user = user;
-        this.book = book;
+        this.item = item;
         this.quantity = quantity;
         this.createdDate = new Date();
     }
@@ -55,12 +55,12 @@ public class Cart {
         this.createdDate = createdDate;
     }
 
-    public Books getBook() {
-        return book;
+    public Items getItem() {
+        return item;
     }
 
-    public void setBook(Books book) {
-        this.book = book;
+    public void setItem(Items item) {
+        this.item = item;
     }
 
     public int getQuantity() {

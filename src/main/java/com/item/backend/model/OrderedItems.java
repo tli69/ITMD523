@@ -3,7 +3,7 @@ package com.item.backend.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import com.item.backend.dto.items.BooksDto;
+import com.item.backend.dto.items.ItemsDto;
 
 @Entity
 @Table(name = "ordered")
