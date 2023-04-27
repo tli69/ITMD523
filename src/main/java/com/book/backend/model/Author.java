@@ -20,7 +20,7 @@ public class Author {
 	@JsonIgnore
 	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY,
 			cascade = CascadeType.ALL)
-	Set<Books> books;
+	Set<Items> items;
 
 	public Author() {
 	}
@@ -53,12 +53,12 @@ public class Author {
 		this.email = email;
 	}
 
-	public Set<Books> getBooks() {
-		return books;
+	public Set<Items> getItems() {
+		return items;
 	}
 
-	public void setBooks(Set<Books> books) {
-		this.books = books;
+	public void setItems(Set<Items> items) {
+		this.items = items;
 	}
 
 	@Override

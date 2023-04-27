@@ -1,7 +1,7 @@
 package com.book.backend.model;
 
+import com.book.backend.dto.items.BooksDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.book.backend.dto.books.BooksDto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "books")
-public class Books {
+public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,22 +25,22 @@ public class Books {
     Author author;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "book",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "item",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<WishList> wishLists = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book",  cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item",  cascade = CascadeType.ALL)
     private List<Cart> carts;
 
-    public Books(BooksDto booksDto, Author author) {
-        this.title = booksDto.getTitle();
-        this.imageURL = booksDto.getImageURL();
-        this.description = booksDto.getDescription();
-        this.price = booksDto.getPrice();
+    public Items(ItemsDto itemsDto, Author author) {
+        this.title = itemsDto.getTitle();
+        this.imageURL = itemsDto.getImageURL();
+        this.description = itemsDto.getDescription();
+        this.price = itemsDto.getPrice();
         this.author = author;
     }
 
-    public Books(String title, String imageURL, double price, String description, Author author) {
+    public Items(String title, String imageURL, double price, String description, Author author) {
         super();
         this.title = title;
         this.imageURL = imageURL;
@@ -49,7 +49,7 @@ public class Books {
         this.author = author;
     }
 
-    public Books() {
+    public Items() {
     }
 
     public Integer getId() {
@@ -118,7 +118,7 @@ public class Books {
 
     @Override
     public String toString() {
-        return "Books{" +
+        return "Items{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
               ", imageURL='" + imageURL + '\'' +

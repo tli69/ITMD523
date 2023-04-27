@@ -32,24 +32,24 @@ public class OrderItem {
 
     @OneToOne
     @JoinColumn(name = "ordered_id", referencedColumnName = "id")
-    private OrderedBooks book;
+    private OrderedItems item;
 
     public OrderItem(){}
 
-    public OrderItem(Order order, @NotNull OrderedBooks book, @NotNull int quantity, @NotNull double price) {
-        this.book = book;
+    public OrderItem(Order order, @NotNull OrderedItems item, @NotNull int quantity, @NotNull double price) {
+        this.item = item;
         this.quantity = quantity;
         this.price = price;
         this.order= order;
         this.createdDate = new Date();
     }
 
-    public OrderedBooks getBook() {
-        return book;
+    public OrderedItems getItem() {
+        return item;
     }
 
-    public void setBook(OrderedBooks book) {
-        this.book = book;
+    public void setItem(OrderedItems item) {
+        this.item = item;
     }
 
 

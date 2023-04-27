@@ -2,7 +2,7 @@ package com.book.backend.dto.checkout;
 
 public class CheckoutItemDto {
 
-    private String bookTitle;
+    private String itemTitle;
     private int  quantity;
     private double price;
     private long bookId;
@@ -10,20 +10,20 @@ public class CheckoutItemDto {
 
     public CheckoutItemDto() {}
 
-    public CheckoutItemDto(String bookTitle, int quantity, double price, long bookId, int userId) {
-        this.bookTitle = bookTitle;
+    public CheckoutItemDto(String itemTitle, int quantity, double price, long itemId, int userId) {
+        this.itemTitle = itemTitle;
         this.quantity = quantity;
         this.price = price;
-        this.bookId = bookId;
+        this.itemId = itemId;
         this.userId = userId;
     }
 
-    public String getBookTitle() {
-        return bookTitle;
+    public String getItemTitle() {
+        return itemTitle;
     }
 
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
+    public void setItemTitle(String itemTitle) {
+        this.itemTitle = itemTitle;
     }
 
     public int getQuantity() {
@@ -42,12 +42,12 @@ public class CheckoutItemDto {
         this.price = price;
     }
 
-    public long getBookId() {
-        return bookId;
+    public long getItemId() {
+        return itemId;
     }
 
-    public void setBookId(long bookId) {
-        this.bookId = bookId;
+    public void setItemId(long itemId) {
+        this.itemId = itemId;
     }
 
     public int getUserId() {

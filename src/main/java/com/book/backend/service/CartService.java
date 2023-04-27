@@ -1,11 +1,11 @@
-package com.item.backend.service;
+package com.book.backend.service;
 
-import com.item.backend.dto.cart.AddToCartDto;
-import com.item.backend.dto.cart.CartDto;
-import com.item.backend.dto.cart.CartItemDto;
-import com.item.backend.exceptions.CartItemNotExistException;
-import com.item.backend.model.*;
-import com.item.backend.repository.CartRepository;
+import com.book.backend.dto.cart.AddToCartDto;
+import com.book.backend.dto.cart.CartDto;
+import com.book.backend.dto.cart.CartItemDto;
+import com.book.backend.exceptions.CartItemNotExistException;
+import com.book.backend.model.*;
+import com.book.backend.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,7 +53,7 @@ public class CartService {
     }
 
 
-    public void updateCartItem(AddToCartDto cartDto, User user, Items item){
+    public void updateCartItem(AddToCartDto cartDto, User user, Items Item){
         Cart cart = cartRepository.getOne(cartDto.getId());
         cart.setQuantity(cartDto.getQuantity());
         cart.setCreatedDate(new Date());

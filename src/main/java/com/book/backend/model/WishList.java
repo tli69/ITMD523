@@ -23,7 +23,7 @@ public class WishList {
     private Date createdDate;
     @JsonIgnore
     @ManyToOne
-    private Books book;
+    private Items item;
 
     public Integer getId() {
         return id;
@@ -49,21 +49,21 @@ public class WishList {
         this.createdDate = createdDate;
     }
 
-    public Books getBook() {
-        return book;
+    public Items getItem() {
+        return item;
     }
 
-    public void setBook(Books book) {
-        this.book = book;
+    public void setItem(Items item) {
+        this.item = item;
     }
 
     public WishList() {
     }
 
 
-    public WishList(User user, Books book) {
+    public WishList(User user, Items item) {
         this.user = user;
-        this.book = book;
+        this.item = item;
         this.createdDate = new Date();
     }
 

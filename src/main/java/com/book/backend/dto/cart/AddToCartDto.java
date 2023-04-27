@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class AddToCartDto {
     private Integer id;
-    private @NotNull Integer bookId;
+    private @NotNull Integer itemId;
     private @NotNull Integer quantity;
 
     public AddToCartDto() {
@@ -13,7 +13,7 @@ public class AddToCartDto {
     public String toString() {
         return "CartDto{" +
                 "id=" + id +
-                ", bookId=" + bookId +
+                ", itemId=" + itemId +
                 ", quantity=" + quantity +
                 ",";
     }
@@ -27,12 +27,12 @@ public class AddToCartDto {
     }
 
 
-    public Integer getBookId() {
-        return bookId;
+    public Integer getItemId() {
+        return itemId;
     }
 
-    public void setBookId(Integer bookId) {
-        this.bookId = bookId;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
     public Integer getQuantity() {

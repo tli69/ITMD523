@@ -1,13 +1,13 @@
 package com.book.backend.model;
 
-import com.book.backend.dto.books.BooksDto;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.book.backend.dto.items.BooksDto;
+
 @Entity
 @Table(name = "ordered")
-public class OrderedBooks {
+public class OrderedItems {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
@@ -17,14 +17,14 @@ public class OrderedBooks {
         private @NotNull String description;
 
 
-        public OrderedBooks(BooksDto booksDto) {
-            this.title = booksDto.getTitle();
-            this.imageURL = booksDto.getImageURL();
-            this.description = booksDto.getDescription();
-            this.price = booksDto.getPrice();
+        public OrderedItems(ItemsDto itemsDto) {
+            this.title = itemsDto.getTitle();
+            this.imageURL = itemsDto.getImageURL();
+            this.description = itemsDto.getDescription();
+            this.price = itemsDto.getPrice();
         }
 
-        public OrderedBooks(String title, String imageURL, double price, String description) {
+        public OrderedItems(String title, String imageURL, double price, String description) {
             super();
             this.title = title;
             this.imageURL = imageURL;
@@ -33,7 +33,7 @@ public class OrderedBooks {
         }
 
 
-        public OrderedBooks() {
+        public OrderedItems() {
         }
 
         public Integer getId() {
@@ -79,7 +79,7 @@ public class OrderedBooks {
 
         @Override
         public String toString() {
-            return "Books{" +
+            return "Items{" +
                     "id=" + id +
                     ", title='" + title + '\'' +
                     ", imageURL='" + imageURL + '\'' +

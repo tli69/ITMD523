@@ -25,19 +25,19 @@ public class CartController {
     private CartService cartService;
 
     @Autowired
-    private BooksService booksService;
+    private ItemsService itemsService;
 
     @Autowired
     private AuthenticationService authenticationService;
 
     @PostMapping("/add")
     public ResponseEntity<ApiResponse> addToCart(@RequestBody AddToCartDto addToCartDto,
-                                                 @RequestParam("token") String token) throws AuthenticationFailException, BookNotExistException {
+                                                 @RequestParam("token") String token) throws AuthenticationFailException, ItemNotExistException {
         authenticationService.authenticate(token);
         User user = authenticationService.getUser(token);
-        Books book = booksService.getBookById(addToCartDto.getBookId());
-        System.out.println("Book to add"+  book.getTitle());
-        cartService.addToCart(addToCartDto, book, user);
+        Books item = itemsService.getItemById(addToCartDto.getItemId());
+        System.out.println("Item to add"+  item.getTitle());
+        cartService.addToCart(addToCartDto, item, user);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Added to cart"), HttpStatus.CREATED);
 
     }
@@ -50,10 +50,10 @@ public class CartController {
     }
     @PutMapping("/update/{cartItemId}")
     public ResponseEntity<ApiResponse> updateCartItem(@RequestBody @Valid AddToCartDto cartDto,
-                                                      @RequestParam("token") String token) throws AuthenticationFailException, BookNotExistException {
+                                                      @RequestParam("token") String token) throws AuthenticationFailException, ItemNotExistException {
         authenticationService.authenticate(token);
         User user = authenticationService.getUser(token);
-        Books product = booksService.getBookById(cartDto.getBookId());
+        Items product = itemsService.getItemById(cartDto.getItemId());
         cartService.updateCartItem(cartDto, user,product);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Product has been updated"), HttpStatus.OK);
     }
