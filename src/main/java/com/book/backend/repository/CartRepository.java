@@ -1,8 +1,8 @@
-package com.book.backend.repository;
+package com.item.backend.repository;
 
-import com.book.backend.model.Cart;
-import com.book.backend.model.User;
-import com.book.backend.model.WishList;
+import com.item.backend.model.Cart;
+import com.item.backend.model.User;
+import com.item.backend.model.WishList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

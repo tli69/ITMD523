@@ -1,7 +1,7 @@
-package com.book.backend.repository;
+package com.item.backend.repository;
 
-import com.book.backend.model.OrderedBooks;
+import com.item.backend.model.OrderedItems;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderedBooksRepository extends JpaRepository<OrderedBooks, Long> {
+public interface OrderedItemsRepository extends JpaRepository<OrderedItems, Long> {
 }

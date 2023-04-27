@@ -1,10 +1,10 @@
-package com.book.backend.repository;
+package com.item.backend.repository;
 
-import com.book.backend.model.Books;
+import com.item.backend.model.Items;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BooksRepository extends JpaRepository<Books, Integer> {
+public interface ItemsRepository extends JpaRepository<Items, Integer> {
 
 }
