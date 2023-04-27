@@ -1,4 +1,4 @@
-package com.book.backend.exceptions;
+package com.item.backend.exceptions;
 
 public class OrderNotFoundException extends IllegalArgumentException {
     public OrderNotFoundException(String msg) {

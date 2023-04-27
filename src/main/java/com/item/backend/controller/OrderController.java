@@ -1,14 +1,14 @@
-package com.book.backend.controller;
+package com.item.backend.controller;
 
-import com.book.backend.common.ApiResponse;
-import com.book.backend.dto.checkout.CheckoutItemDto;
-import com.book.backend.dto.checkout.StripeResponse;
-import com.book.backend.exceptions.AuthenticationFailException;
-import com.book.backend.exceptions.OrderNotFoundException;
-import com.book.backend.model.Order;
-import com.book.backend.model.User;
-import com.book.backend.service.AuthenticationService;
-import com.book.backend.service.OrderService;
+import com.item.backend.common.ApiResponse;
+import com.item.backend.dto.checkout.CheckoutItemDto;
+import com.item.backend.dto.checkout.StripeResponse;
+import com.item.backend.exceptions.AuthenticationFailException;
+import com.item.backend.exceptions.OrderNotFoundException;
+import com.item.backend.model.Order;
+import com.item.backend.model.User;
+import com.item.backend.service.AuthenticationService;
+import com.item.backend.service.OrderService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.book.backend.dto.user;
+package com.item.backend.dto.user;
 
 
-import com.book.backend.enums.Role;
+import com.item.backend.enums.Role;
 
 public class UserCreateDto {
 

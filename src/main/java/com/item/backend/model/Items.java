@@ -1,7 +1,7 @@
-package com.book.backend.model;
+package com.item.backend.model;
 
-import com.book.backend.dto.items.BooksDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.item.backend.dto.items.BooksDto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

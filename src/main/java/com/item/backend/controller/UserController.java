@@ -1,18 +1,19 @@
-package com.book.backend.controller;
+package com.item.backend.controller;
 
 
-import com.book.backend.dto.ResponseDto;
-import com.book.backend.dto.user.SignInDto;
-import com.book.backend.dto.user.SignInResponseDto;
-import com.book.backend.dto.user.SignupDto;
-import com.book.backend.exceptions.AuthenticationFailException;
-import com.book.backend.exceptions.CustomException;
-import com.book.backend.model.User;
-import com.book.backend.repository.UserRepository;
-import com.book.backend.service.AuthenticationService;
-import com.book.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.item.backend.dto.ResponseDto;
+import com.item.backend.dto.user.SignInDto;
+import com.item.backend.dto.user.SignInResponseDto;
+import com.item.backend.dto.user.SignupDto;
+import com.item.backend.exceptions.AuthenticationFailException;
+import com.item.backend.exceptions.CustomException;
+import com.item.backend.model.User;
+import com.item.backend.repository.UserRepository;
+import com.item.backend.service.AuthenticationService;
+import com.item.backend.service.UserService;
 
 import java.util.List;
 

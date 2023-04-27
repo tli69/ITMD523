@@ -1,4 +1,4 @@
-package com.book.backend.dto;
+package com.item.backend.dto;
 
 
 public class ResponseDto {

@@ -1,4 +1,4 @@
-package com.book.backend.model;
+package com.item.backend.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;

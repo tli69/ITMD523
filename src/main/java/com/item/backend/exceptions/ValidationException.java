@@ -1,4 +1,4 @@
-package com.book.backend.exceptions;
+package com.item.backend.exceptions;
 
 public class ValidationException extends RuntimeException{
 	private static final long serialVersionUID = 6064663768170825752L;

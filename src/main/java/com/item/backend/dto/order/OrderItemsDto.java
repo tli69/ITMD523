@@ -1,4 +1,4 @@
-package com.book.backend.dto.order;
+package com.item.backend.dto.order;
 
 import javax.validation.constraints.NotNull;
 

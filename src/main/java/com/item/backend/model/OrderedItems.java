@@ -1,9 +1,9 @@
-package com.book.backend.model;
+package com.item.backend.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import com.book.backend.dto.items.BooksDto;
+import com.item.backend.dto.items.BooksDto;
 
 @Entity
 @Table(name = "ordered")

@@ -1,9 +1,9 @@
-package com.book.backend.dto.order;
+package com.item.backend.dto.order;
 
-
-import com.book.backend.model.Order;
 
 import javax.validation.constraints.NotNull;
+
+import com.item.backend.model.Order;
 
 public class OrderDto {
     private Integer id;

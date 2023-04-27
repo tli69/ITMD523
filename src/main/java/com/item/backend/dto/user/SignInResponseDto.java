@@ -1,4 +1,4 @@
-package com.book.backend.dto.user;
+package com.item.backend.dto.user;
 
 public class SignInResponseDto {
     private String status;

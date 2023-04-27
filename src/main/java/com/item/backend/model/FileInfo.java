@@ -1,4 +1,4 @@
-package com.book.backend.model;
+package com.item.backend.model;
 
 public class FileInfo {
   private String name;

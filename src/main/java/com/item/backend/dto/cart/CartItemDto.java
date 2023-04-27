@@ -1,9 +1,9 @@
-package com.book.backend.dto.cart;
-
-import com.book.backend.model.Cart;
-import com.book.backend.model.Books;
+package com.item.backend.dto.cart;
 
 import javax.validation.constraints.NotNull;
+
+import com.item.backend.model.Books;
+import com.item.backend.model.Cart;
 
 public class CartItemDto {
     private Integer id;

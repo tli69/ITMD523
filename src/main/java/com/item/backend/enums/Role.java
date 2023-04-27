@@ -1,4 +1,4 @@
-package com.book.backend.enums;
+package com.item.backend.enums;
 
 public enum Role {
     user,

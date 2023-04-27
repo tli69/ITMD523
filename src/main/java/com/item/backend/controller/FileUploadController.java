@@ -1,8 +1,6 @@
-package com.book.backend.controller;
+package com.item.backend.controller;
 
 
-import com.book.backend.model.FileInfo;
-import com.book.backend.service.FIleStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+
+import com.item.backend.model.FileInfo;
+import com.item.backend.service.FIleStoreService;
 
 import java.nio.file.Path;
 import java.util.List;

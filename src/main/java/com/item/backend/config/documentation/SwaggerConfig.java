@@ -1,4 +1,4 @@
-package com.book.backend.config.documentation;
+package com.item.backend.config.documentation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

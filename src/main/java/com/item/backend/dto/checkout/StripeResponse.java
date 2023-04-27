@@ -1,4 +1,4 @@
-package com.book.backend.dto.checkout;
+package com.item.backend.dto.checkout;
 
 public class StripeResponse {
     private String sessionId;

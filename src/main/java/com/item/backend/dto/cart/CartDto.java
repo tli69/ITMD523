@@ -1,4 +1,4 @@
-package com.book.backend.dto.cart;
+package com.item.backend.dto.cart;
 
 import java.util.List;
 

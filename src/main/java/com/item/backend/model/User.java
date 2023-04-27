@@ -1,6 +1,7 @@
-package com.book.backend.model;
+package com.item.backend.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.book.backend.enums.Role;
+import com.item.backend.enums.Role;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity

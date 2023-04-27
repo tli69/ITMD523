@@ -1,4 +1,4 @@
-package com.book.backend.config;
+package com.item.backend.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

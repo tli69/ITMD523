@@ -1,4 +1,4 @@
-package com.book.backend.exceptions;
+package com.item.backend.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,9 @@
-package com.book.backend.dto.items;
+package com.item.backend.dto.items;
 
-
-import com.book.backend.model.Books;
 
 import javax.validation.constraints.NotNull;
+
+import com.item.backend.model.Books;
 
 public class ItemsDto {
 
