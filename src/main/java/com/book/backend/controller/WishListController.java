@@ -31,9 +31,9 @@ public class WishListController {
         public ResponseEntity<List<ItemsDto>> getWishList(@PathVariable("token") String token) {
                 int user_id = authenticationService.getUser(token).getId();
                 List<WishList> body = wishListService.readWishList(user_id);
-                List<BooksDto> books = new ArrayList<ItemsDto>();
+                List<ItemsDto> items = new ArrayList<ItemsDto>();
                 for (WishList wishList : body) {
-                        books.add(ItemsService.getDtoFromItem(wishList.getItem()));
+                        items.add(ItemsService.getDtoFromItem(wishList.getItem()));
                 }
 
                 return new ResponseEntity<List<ItemsDto>>(items, HttpStatus.OK);

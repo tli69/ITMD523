@@ -24,7 +24,7 @@ public class SwaggerConfig {
 	private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
                 .title("Ecommerce API")
-                .description("Book Backend application's Documentation=")
+                .description("Item Backend application's Documentation=")
                 .build();
     }
 }
