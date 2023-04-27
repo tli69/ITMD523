@@ -1,11 +1,11 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.dto.books.BooksDto;
-import com.book.backend.exceptions.BookNotExistException;
-import com.book.backend.exceptions.CartItemNotExistException;
-import com.book.backend.model.Author;
-import com.book.backend.model.Books;
-import com.book.backend.repository.BooksRepository;
+import com.item.backend.dto.books.BooksDto;
+import com.item.backend.exceptions.BookNotExistException;
+import com.item.backend.exceptions.CartItemNotExistException;
+import com.item.backend.model.Author;
+import com.item.backend.model.Books;
+import com.item.backend.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,47 +20,47 @@ public class BooksService {
     @Autowired
     WishListService wishListService;
 
-    public List<BooksDto> listAllBooks() {
-        List<Books> books = booksRepository.findAll();
-        List<BooksDto> booksDto = new ArrayList<>();
-        for(Books book : books) {
-            BooksDto booksDtos = getDtoFromBook(book);
-            booksDto.add(booksDtos);
+    public List<ItemsDto> listAllItems() {
+        List<Items> items = itemsRepository.findAll();
+        List<ItemsDto> itemsDto = new ArrayList<>();
+        for(Items item : items) {
+            ItemsDto itemsDtos = getDtoFromItem(item);
+            itemsDto.add(itemsDtos);
         }
-        return booksDto;
+        return itemsDto;
     }
 
-    public static BooksDto getDtoFromBook(Books book) {
-        BooksDto booksDto = new BooksDto(book);
-        return booksDto;
+    public static ItemsDto getDtoFromItem(Items item) {
+        ItemsDto itemsDto = new ItemsDto(item);
+        return itemsDto;
     }
 
-    public static Books getBookFromDto(BooksDto booksDto, Author author) {
-        Books book = new Books(booksDto, author);
-        return book;
+    public static Items getItemFromDto(ItemsDto itemsDto, Author author) {
+        Items item = new Items(itemsDto, author);
+        return item;
     }
 
-    public void addBook(BooksDto booksDto, Author author) {
-        Books book = getBookFromDto(booksDto, author);
-        booksRepository.save(book);
+    public void addItem(ItemsDto itemsDto, Author author) {
+        Items item = getItemFromDto(itemsDto, author);
+        itemsRepository.save(item);
     }
 
-    public void updateBook(Integer bookId, BooksDto booksDto, Author author) {
-        Books book = getBookFromDto(booksDto, author);
-        book.setId(bookId);
-        booksRepository.save(book);
+    public void updateItem(Integer itemId, ItemsDto itemsDto, Author author) {
+        Items item = getItemFromDto(itemsDto, author);
+        item.setId(itemId);
+        itemsRepository.save(item);
     }
-    public Books getBookById(Integer bookId) throws BookNotExistException {
-        Optional<Books> optionalBook = booksRepository.findById(bookId);
-        if (!optionalBook.isPresent())
-            throw new BookNotExistException("Book id is invalid " + bookId);
-        return optionalBook.get();
+    public Items getItemById(Integer itemId) throws ItemNotExistException {
+        Optional<Items> optionalItem = itemsRepository.findById(itemId);
+        if (!optionalItem.isPresent())
+            throw new ItemNotExistException("Item id is invalid " + itemId);
+        return optionalItem.get();
     }
 
-    public void deleteBook(int id, int userId) throws CartItemNotExistException {
-        if (!booksRepository.existsById(id))
-            throw new BookNotExistException("Book id is invalid : " + id);
-        wishListService.deleteByBookId(id);
-        booksRepository.deleteById(id);
+    public void deleteItem(int id, int userId) throws CartItemNotExistException {
+        if (!itemsRepository.existsById(id))
+            throw new ItemNotExistException("Item id is invalid : " + id);
+        wishListService.deleteByItemId(id);
+        itemsRepository.deleteById(id);
     }
 }
