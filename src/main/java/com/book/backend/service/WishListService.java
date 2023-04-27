@@ -1,7 +1,7 @@
-package com.book.backend.service;
+package com.item.backend.service;
 
-import com.book.backend.model.WishList;
-import com.book.backend.repository.WishListRepository;
+import com.item.backend.model.WishList;
+import com.item.backend.repository.WishListRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -26,10 +26,10 @@ public class WishListService {
         return wishListRepository.findAllByUserIdOrderByCreatedDateDesc(userId);
     }
 
-    public void deleteByBookId(int id) {
+    public void deleteByItemId(int id) {
         List<WishList> list = wishListRepository.findAll();
         for(WishList wishList: list){
-            if(wishList.getBook().getId()==id){
+            if(wishList.getItem().getId()==id){
                 wishListRepository.deleteById(wishList.getId());
             }
         }
